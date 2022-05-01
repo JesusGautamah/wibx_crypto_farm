@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Wibx products
+
+#wibx_products
+  - @wibx_products.each do |wibx_product|
+    == render wibx_product
+    p
+      = link_to "Show this wibx product", wibx_product
+
+= link_to "New wibx product", new_wibx_product_path

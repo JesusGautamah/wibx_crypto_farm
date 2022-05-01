@@ -1,0 +1,10 @@
+h1 Editing farm link
+
+== render "form", farm_link: @farm_link
+
+br
+
+div
+  => link_to "Show this farm link", @farm_link
+  '|
+  =< link_to "Back to farm links", farm_links_path

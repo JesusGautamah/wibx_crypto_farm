@@ -1,0 +1,2 @@
+class FaceAccount < ApplicationRecord
+end

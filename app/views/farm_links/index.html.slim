@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Farm links
+
+#farm_links
+  - @farm_links.each do |farm_link|
+    == render farm_link
+    p
+      = link_to "Show this farm link", farm_link
+
+= link_to "New farm link", new_farm_link_path

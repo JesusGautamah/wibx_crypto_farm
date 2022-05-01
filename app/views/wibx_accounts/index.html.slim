@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Wibx accounts
+
+#wibx_accounts
+  - @wibx_accounts.each do |wibx_account|
+    == render wibx_account
+    p
+      = link_to "Show this wibx account", wibx_account
+
+= link_to "New wibx account", new_wibx_account_path

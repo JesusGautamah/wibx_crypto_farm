@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Face accounts
+
+#face_accounts
+  - @face_accounts.each do |face_account|
+    == render face_account
+    p
+      = link_to "Show this face account", face_account
+
+= link_to "New face account", new_face_account_path

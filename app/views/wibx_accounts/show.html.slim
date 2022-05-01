@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @wibx_account
+
+div
+  => link_to "Edit this wibx account", edit_wibx_account_path(@wibx_account)
+  '|
+  =< link_to "Back to wibx accounts", wibx_accounts_path
+
+  = button_to "Destroy this wibx account", @wibx_account, method: :delete

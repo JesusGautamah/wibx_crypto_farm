@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  facebook_link: 1
+  whatsapp_link: 1
+  telegram_link: 1
+  facebook_gain: 1.5
+  whatsapp_gain: 1.5
+  telegram_gain: 1.5
+  facebook_requests: 1
+  whatsapp_requests: 1
+  telegram_requests: 1
+  total_user_product_gain: 1.5
+  user_facebook_gain: 1.5
+  user_whatsapp_gain: 1.5
+  user_telegram_gain: 1.5
+  status: 1
+
+two:
+  title: MyString
+  facebook_link: 1
+  whatsapp_link: 1
+  telegram_link: 1
+  facebook_gain: 1.5
+  whatsapp_gain: 1.5
+  telegram_gain: 1.5
+  facebook_requests: 1
+  whatsapp_requests: 1
+  telegram_requests: 1
+  total_user_product_gain: 1.5
+  user_facebook_gain: 1.5
+  user_whatsapp_gain: 1.5
+  user_telegram_gain: 1.5
+  status: 1

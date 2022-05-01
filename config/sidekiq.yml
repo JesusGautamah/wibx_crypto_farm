@@ -1,0 +1,21 @@
+:concurrency: 5
+:pidfile: tmp/pids/sidekiq.pid
+:queues:
+  - default
+  - process_asset
+staging:
+  :concurrency: 5
+  :tag: myapp_staging
+  :queues:
+    - default
+    - export
+    - process_asset
+    - import
+production:
+  :concurrency: 25
+  :tag: myapp_production
+  :queues:
+    - default
+    - export
+    - process_asset
+    - import

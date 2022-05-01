@@ -1,0 +1,70 @@
+= form_with(model: @wibx_product) do |form|
+  - if @wibx_product.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@wibx_product.errors.count, 'error')} prohibited this wibx_product from being saved:"
+      ul
+        - @wibx_product.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :title, style: "display: block"
+    = form.text_field :title
+
+  div
+    = form.label :facebook_link, style: "display: block"
+    = form.number_field :facebook_link
+
+  div
+    = form.label :whatsapp_link, style: "display: block"
+    = form.number_field :whatsapp_link
+
+  div
+    = form.label :telegram_link, style: "display: block"
+    = form.number_field :telegram_link
+
+  div
+    = form.label :facebook_gain, style: "display: block"
+    = form.text_field :facebook_gain
+
+  div
+    = form.label :whatsapp_gain, style: "display: block"
+    = form.text_field :whatsapp_gain
+
+  div
+    = form.label :telegram_gain, style: "display: block"
+    = form.text_field :telegram_gain
+
+  div
+    = form.label :facebook_requests, style: "display: block"
+    = form.number_field :facebook_requests
+
+  div
+    = form.label :whatsapp_requests, style: "display: block"
+    = form.number_field :whatsapp_requests
+
+  div
+    = form.label :telegram_requests, style: "display: block"
+    = form.number_field :telegram_requests
+
+  div
+    = form.label :total_user_product_gain, style: "display: block"
+    = form.text_field :total_user_product_gain
+
+  div
+    = form.label :user_facebook_gain, style: "display: block"
+    = form.text_field :user_facebook_gain
+
+  div
+    = form.label :user_whatsapp_gain, style: "display: block"
+    = form.text_field :user_whatsapp_gain
+
+  div
+    = form.label :user_telegram_gain, style: "display: block"
+    = form.text_field :user_telegram_gain
+
+  div
+    = form.label :status, style: "display: block"
+    = form.number_field :status
+
+  div
+    = form.submit

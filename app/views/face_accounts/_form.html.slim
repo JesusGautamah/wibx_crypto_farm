@@ -1,0 +1,18 @@
+= form_with(model: @face_account) do |form|
+  - if @face_account.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(@face_account.errors.count, 'error')} prohibited this face_account from being saved:"
+      ul
+        - @face_account.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :email, style: "display: block"
+    = form.text_field :email
+
+  div
+    = form.label :password, style: "display: block"
+    = form.text_field :password
+
+  div
+    = form.submit

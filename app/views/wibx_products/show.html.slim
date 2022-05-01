@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @wibx_product
+
+div
+  => link_to "Edit this wibx product", edit_wibx_product_path(@wibx_product)
+  '|
+  =< link_to "Back to wibx products", wibx_products_path
+
+  = button_to "Destroy this wibx product", @wibx_product, method: :delete

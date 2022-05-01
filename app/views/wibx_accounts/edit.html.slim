@@ -1,0 +1,10 @@
+h1 Editing wibx account
+
+== render "form", wibx_account: @wibx_account
+
+br
+
+div
+  => link_to "Show this wibx account", @wibx_account
+  '|
+  =< link_to "Back to wibx accounts", wibx_accounts_path
