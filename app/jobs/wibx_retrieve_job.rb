@@ -169,7 +169,7 @@ class WibxRetrieveJob
   end
 
   def start_tor_proxy
-    system 'sudo service tor start && sudo service privoxy start'
+    system 'easypx start'
     sleep(10)
     puts 'Started Tor Proxy'
   rescue StandardError => e
@@ -217,7 +217,7 @@ class WibxRetrieveJob
     return 5 if farm_when_done == 'true'
 
     puts('Stopping Tor Proxy')
-    system 'sudo service tor stop && sudo service privoxy stop'
+    system 'easypx stop'
     puts('Done')
     driver.close
     5

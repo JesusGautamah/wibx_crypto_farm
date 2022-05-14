@@ -50,7 +50,7 @@ class WibxProductCreatorJob
   end
 
   def start_tor_proxy
-    system 'sudo service tor start && sudo service privoxy start'
+    system 'easypx start'
     puts 'Starting Tor Proxy'
     10
   rescue StandardError => e

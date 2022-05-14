@@ -4,7 +4,7 @@ class FarmFilterJob
 
     def perform()
         puts('Starting Tor Proxy')
-        system 'sudo service tor start && sudo service privoxy start'
+        system 'easypx start'
         sleep(10)
         puts('Done')
 
