@@ -2,7 +2,7 @@
 
 # rubocop:disable Lint/MissingCopEnableDirective
 
-# rubocop:disable Metrics/ClassLength
+# rubocop:disable Metrics/ClassLength, Metrics/MethodLength
 
 # rubocop:disable Metrics/AbcSize
 
@@ -45,6 +45,7 @@ class WibxRetrieveJob
   end
 
   def facebook_share(driver, share, text)
+    puts 'Starting Facebook Share'
     share.click
     sleep(8)
     driver.switch_to.window(driver.window_handles[1])
@@ -58,16 +59,24 @@ class WibxRetrieveJob
   end
 
   def create_if_whatsapp_link_founded(driver, product_title = nil)
-    sleep(8)
-    href_text = driver.find_element(:class, '_2y_4').text
-    href = URI.extract(href_text).first
-    LinkCreateJob.perform_async(href, 'whatsapp', product_title)
+    sleep(10)
+    href_to_save = ''
+    href_text = driver.find_elements(:class, '_9vd5')
+    href_text.each do |href|
+      if href.text.include?('https') && href.text.include?(product_title)
+        puts href.text
+        href_to_save = URI.extract(href).first
+      end
+    end
+    puts href_to_save
+    LinkCreateJob.perform_async(href_to_save, 'whatsapp', product_title)
     1
   rescue StandardError => e
     puts e.message
   end
 
   def whatsapp_share(driver, share, text)
+    puts 'Starting Whatsapp Share'
     share.click
     sleep(15)
     driver.switch_to.window(driver.window_handles[1])
@@ -89,6 +98,7 @@ class WibxRetrieveJob
   end
 
   def telegram_share(driver, share, text)
+    puts 'Starting Telegram Share'
     share.click
     driver.switch_to.window(driver.window_handles[1])
     sleep(15)
@@ -127,7 +137,9 @@ class WibxRetrieveJob
 
   def start_farming(facebook)
     puts('Starting Farm')
-    facebook == 'true' ? WibxFarmJob.perform_async(5000, facebook, driver) : WibxFarmJob.perform_async(5000, nil, driver)
+    with_facebook = WibxFarmJob.perform_async(5000, facebook, driver)
+    without_facebook = WibxFarmJob.perform_async(5000, nil, driver)
+    facebook == 'true' ? with_facebook : without_facebook
   rescue StandardError => e
     puts e.message
   end
@@ -161,7 +173,7 @@ class WibxRetrieveJob
     sleep(10)
     unless farm_when_done == true && logged_in_detection(driver) == true
       button_cookie = "//button[@title='Only allow essential cookies']"
-      driver.find_elements(:xpath, button_cookie).size.positive? ? driver.find_element(:xpath, button_cookie).click : nil
+      driver.find_elements(:xpath, button_cookie).size.positive? ? driver.find_element(:xpath, button_cookie).click : nil # rubocop:disable Layout/LineLength
       sleep(element_click(driver))
     end
   rescue StandardError => e
