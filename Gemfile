@@ -85,3 +85,5 @@ gem "net-telnet"
 
 # Icon Pack
 gem "font-awesome-rails"
+
+gem "pagy", "~> 5.10"

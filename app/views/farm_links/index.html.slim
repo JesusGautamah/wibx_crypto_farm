@@ -1,11 +1,13 @@
 p style="color: green" = notice
 
-h1 Farm links
-
-#farm_links
+h1.text-white Farm links
+br
+#farm_links.grid.grid-cols-3.gap-4
   - @farm_links.each do |farm_link|
-    == render farm_link
-    p
-      = link_to "Show this farm link", farm_link
-
-= link_to "New farm link", new_farm_link_path
+    .bg-sky-200.rounded-lg
+      == render farm_link
+      br
+      = link_to 'Show', farm_link, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style:'display: inline-block;'
+.text-white
+  br
+  == pagy_nav(@pagy)

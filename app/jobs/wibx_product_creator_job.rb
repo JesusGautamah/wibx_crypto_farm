@@ -92,12 +92,12 @@ class WibxProductCreatorJob
                    ['whatsapp', 'gain', 'link'],
                    ['telegram', 'gain', 'link']]
     social_list.each do |social|
-      social[2] = FarmLink.find_by(origin: social[0], product_title: product.title).empty? ? nil : FarmLink.find_by(origin: social[0], product_title: product.title).id
+      FarmLink.find_by(origin: social[0], product_title: product.title).empty? ? puts('No Link Farmed') : social[2] = FarmLink.find_by(origin: social[0], product_title: product.title).id
       social[0] == 'telegram' ? text = driver.find_elements(:class, 'list-twitter')[1].text : text = driver.find_element(:class, "list-#{social[0]}").text
-      social[0] = 'twitter'
+      social[0] == 'telegram' ? social[0] = 'twitter' : nil
       social[1] = text.gsub(/\R+/, '').gsub('Shares', '').gsub("Wonby#{social[0].capitalize}", '').gsub(' ', '')
       puts "Social: #{social} - Value: #{social[1]}"
-      social == 'twitter' ? social = 'telegram' : nil
+      social[0] == 'twitter' ? social[0] = 'telegram' : nil
     end
     product.facebook_gain = social_list[0][1].to_flaot
     product.facebook_link = social_list[0][2]

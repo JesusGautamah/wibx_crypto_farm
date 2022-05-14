@@ -3,18 +3,13 @@ class FarmLinksController < ApplicationController
 
   # GET /farm_links or /farm_links.json
   def index
-    @farm_links = FarmLink.all
+    @pagy, @farm_links = pagy(FarmLink.all)
   end
 
   # GET /farm_links/1 or /farm_links/1.json
   def show
   end
-
-  # GET /farm_links/new
-  def new
-    @farm_link = FarmLink.new
-  end
-
+  
   # GET /farm_links/1/edit
   def edit
   end

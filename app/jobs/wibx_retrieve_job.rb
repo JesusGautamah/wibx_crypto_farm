@@ -26,7 +26,8 @@ class WibxRetrieveJob
 
   def wibx_list_page(driver)
     driver.navigate.to 'https://fidelidade.wiboo.io/?lang=en'
-    sleep(25)
+    puts 'waiting 40 seconds, roll page down to load more products'
+    sleep(40)
   rescue StandardError => e
     puts e.message
   end
@@ -65,7 +66,7 @@ class WibxRetrieveJob
     href_text.each do |href|
       if href.text.include?('https') && href.text.include?(product_title)
         puts href.text
-        href_to_save = URI.extract(href).first
+        href_to_save = URI.extract(href.text).first
       end
     end
     puts href_to_save
