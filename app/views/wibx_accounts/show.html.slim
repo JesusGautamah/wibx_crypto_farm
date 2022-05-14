@@ -1,10 +1,14 @@
 p style="color: green" = notice
 
-== render @wibx_account
+div.text-white
+  == render @wibx_account
 
-div
-  => link_to "Edit this wibx account", edit_wibx_account_path(@wibx_account)
-  '|
-  =< link_to "Back to wibx accounts", wibx_accounts_path
-
-  = button_to "Destroy this wibx account", @wibx_account, method: :delete
+div.text-white
+  br
+  = link_to "Edit this wibx account", edit_wibx_account_path(@wibx_account), class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style:'display: inline-block;'
+  br
+  br
+  = link_to "Back to wibx accounts", wibx_accounts_path, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style:'display: inline-block;'
+  br
+  br
+  = button_to "Destroy this wibx account", @wibx_account, method: :delete, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded"

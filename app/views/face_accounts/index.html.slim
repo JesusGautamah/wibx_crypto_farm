@@ -1,11 +1,13 @@
 p style="color: green" = notice
 
-h1 Face accounts
+h1.text-white Face accounts
 
-#face_accounts
+#face_accounts.text-white
   - @face_accounts.each do |face_account|
     == render face_account
     p
-      = link_to "Show this face account", face_account
+      = link_to "Show this face account", face_account, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style:'display: inline-block;'
+    br
+    br
 
-= link_to "New face account", new_face_account_path
+= link_to "New face account", new_face_account_path, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style:'display: inline-block;'

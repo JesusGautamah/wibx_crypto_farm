@@ -1,11 +1,12 @@
 p style="color: green" = notice
 
-h1 Wibx accounts
+h1.text-white Wibx accounts
 
-#wibx_accounts
+#wibx_accounts.text-white
   - @wibx_accounts.each do |wibx_account|
     == render wibx_account
     p
-      = link_to "Show this wibx account", wibx_account
-
-= link_to "New wibx account", new_wibx_account_path
+      = link_to "Show this wibx account", wibx_account, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style:'display: inline-block;'
+    br
+    br
+= link_to "New wibx account", new_wibx_account_path, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style: 'display: inline-block;'

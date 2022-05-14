@@ -1,10 +1,12 @@
-h1 Editing face account
+h1.text-white Editing face account
 
 == render "form", face_account: @face_account
 
 br
+br
 
 div
-  => link_to "Show this face account", @face_account
-  '|
-  =< link_to "Back to face accounts", face_accounts_path
+  = link_to "Show this face account", @face_accoun, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style: 'display: inline-block;'
+  br
+  br
+  = link_to "Back to face accounts", face_accounts_path, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style: 'display: inline-block;'

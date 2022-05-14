@@ -81,3 +81,5 @@ gem "tor-privoxy"
 gem "tor-control"
 gem "net-telnet"
 
+# Icon Pack
+gem "font-awesome-rails"
