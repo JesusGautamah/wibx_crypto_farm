@@ -1,3 +1,5 @@
+# rubocop:disable all
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -81,3 +83,7 @@ gem "tor-privoxy"
 gem "tor-control"
 gem "net-telnet"
 
+# Icon Pack
+gem "font-awesome-rails"
+
+gem "pagy", "~> 5.10"

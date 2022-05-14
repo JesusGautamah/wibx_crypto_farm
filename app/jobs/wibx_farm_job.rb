@@ -38,7 +38,7 @@ class WibxFarmJob
   end
 
   def start_tor_proxy
-    system 'sudo service tor start && sudo service privoxy start'
+    system 'easypx start'
     sleep(10)
     puts 'Started Tor Proxy'
   rescue StandardError => e
@@ -66,7 +66,7 @@ class WibxFarmJob
 
   def retry_connection(facebook)
     puts 'Reset Tor Proxy & Start new Selenium driver'
-    system 'sudo service tor restart && sudo service privoxy restart'
+    system 'easypx restart'
     system 'killall -9 firefox-esr'
     puts 'Done'
     sleep(10)
@@ -97,7 +97,7 @@ class WibxFarmJob
 
   def tor_new_identification
     puts 'Changing Tor Proxy'
-    system 'sudo service tor restart && sudo service privoxy restart'
+    system 'easypx shuffle'
     sleep(5)
   rescue StandardError => e
     puts e
@@ -105,7 +105,7 @@ class WibxFarmJob
 
   def stop_proxy
     puts('Stopping Tor Proxy')
-    system 'sudo service tor stop && sudo service privoxy stop'
+    system 'easypx stop'
     sleep(20)
     puts('Done')
   end

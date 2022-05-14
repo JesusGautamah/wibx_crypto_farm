@@ -1,8 +1,9 @@
 p style="color: green" = notice
 
-== render @farm_link
+.text-white
+  == render @farm_link
 
-div
+div.text-white
   => link_to "Edit this farm link", edit_farm_link_path(@farm_link)
   '|
   =< link_to "Back to farm links", farm_links_path

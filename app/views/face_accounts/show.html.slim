@@ -1,10 +1,15 @@
 p style="color: green" = notice
 
-== render @face_account
+div.text-white
+  == render @face_account
+br
+br
 
 div
-  => link_to "Edit this face account", edit_face_account_path(@face_account)
-  '|
-  =< link_to "Back to face accounts", face_accounts_path
-
-  = button_to "Destroy this face account", @face_account, method: :delete
+  = link_to "Edit this face account", edit_face_account_path(@face_account), class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style:'display: inline-block;'
+  br
+  br
+  = link_to "Back to face accounts", face_accounts_path, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded", style:'display: inline-block;'
+  br
+  br
+  = button_to "Destroy this face account", @face_account, method: :delete, class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded"

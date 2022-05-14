@@ -1,18 +1,20 @@
-= form_with(model: @wibx_account) do |form|
+= form_with(model: @wibx_account, class: "mt-2 flex flex-col") do |form|
   - if @wibx_account.errors.any?
     div style="color: red"
       h2 = "#{pluralize(@wibx_account.errors.count, 'error')} prohibited this wibx_account from being saved:"
       ul
         - @wibx_account.errors.each do |error|
           li = error.full_message
-
+  div.flex.flex-wrap.items-stretch.w-full.mb-4.relative.h-15.bg-sky-900.items-center.rounded.mb-6.pr-10
+    div.flex.-mr-px.justify-center.w-15.p-4
+      span.flex.items-center.leading-normal.bg-white.px-3.border-orange-500.text-orange-500.rounded
+        i.fa.fa-user-circle.fa-lg.text-orange-500
+    = form.text_field :email, class:"flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border-0 h-10 border-grey-light rounded rounded-l-none px-3 self-center relative  font-roboto text-xl outline-none"
+  div.flex.flex-wrap.items-stretch.w-full.mb-4.relative.h-15.bg-sky-900.items-center.rounded.mb-6.pr-10
+    div.flex.-mr-px.justify-center.w-15.p-4
+      span.flex.items-center.leading-normal.bg-white.px-3.border-orange-500.text-orange-500.rounded
+        i.fa.fa-key.fa-lg.text-orange-500
+    = form.password_field :password, class:"flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border-0 h-10 border-grey-light rounded rounded-l-none px-3 self-center relative  font-roboto text-xl outline-none"
   div
-    = form.label :email, style: "display: block"
-    = form.text_field :email
-
-  div
-    = form.label :password, style: "display: block"
-    = form.text_field :password
-
-  div
-    = form.submit
+    br
+    = form.submit 'Add Wibx Account' , class: "bg-sky-600 hover_bg-black-light text-white font-bold py-2 px-4 border-b-4 border-purple-300 hover_border-green-300 rounded"

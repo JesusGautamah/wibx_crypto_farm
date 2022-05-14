@@ -2,6 +2,8 @@
 
 # Rails Application Controller
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+  
   def home
     # WibxRetrieveJob.perform_async
   end
