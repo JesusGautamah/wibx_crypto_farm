@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Wibx Products Controller
 class WibxProductsController < ApplicationController
   before_action :set_wibx_product, only: %i[ show edit update destroy ]
 

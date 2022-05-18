@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Farm Links Controller
 class FarmLinksController < ApplicationController
   before_action :set_farm_link, only: %i[ show edit update destroy ]
 

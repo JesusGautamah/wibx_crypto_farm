@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Wibx Account controller
 class WibxAccountsController < ApplicationController
   before_action :set_wibx_account, only: %i[ show edit update destroy ]
 

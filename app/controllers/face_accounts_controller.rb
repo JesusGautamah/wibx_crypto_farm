@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Face Accounts Controller
 class FaceAccountsController < ApplicationController
   before_action :set_face_account, only: %i[ show edit update destroy ]
 
